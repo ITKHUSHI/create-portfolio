@@ -122,7 +122,7 @@ export const Header = () => {
       <div className="rounded-full   ">
       <Image
       className=" w-64 md:w-80 p-2 rounded-2xl object-cover z-10 absolute right-10  md:right-64 md:top-32 "
-      src="/portfolio-image.jpg" alt="image not fetched" />
+      src="./portfolio-image.jpg" alt="image not fetched" />
       
     </div>
     </div>

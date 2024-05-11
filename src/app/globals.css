@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  background-color: #020617;
+  color: beige;
+  }
+.container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap:40px;
+  
+
+}
+
+.container .card{
+  position: relative;
+  display: flex;
+  width: 220px;
+  height: 250px;
+  background-color: rgb(20, 19, 19);
+  justify-content: center;
+  align-items: center;
+  border-radius: 4%;
+}
+.container .card .percent {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  
+}
+.container .card .percent svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform: rotate(270deg);
+}
+.container .card .percent svg circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke-width: 4;
+  stroke: rgb(64, 69, 64);
+  transform:  translate(5px , 5px);
+
+}
+.container .card .percent svg circle:nth-child(2){
+  stroke: #04fc43;
+  stroke-dasharray: 440;
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+  animation-delay: 2.5s;
+  
+}
+.num{
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+  animation-delay: 2.5s;
+}
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 100%;
+  }
+  
+}
+.dot{
+  position: absolute;
+  inset: 5px;
+  z-index: 10;
+  animation: animateDot 2s linear forwards;
+}
+@keyframes animateDot {
+  0%{
+      transform:rotate(0deg);
+  }
+  100%{
+      transform: rotate(calc(3.6deg*proficiency));
+  }
+}
+.dot::before{
+  content: " ";
+  position: absolute;
+  top: -5px;
+  left:50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color:#04fc43;
+  box-shadow: 0 0 10px rgba(#04fc43),
+             0 0 30 px rgb(#04fc43);
+}
+  
+  
+
+
+
+ :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/*body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */

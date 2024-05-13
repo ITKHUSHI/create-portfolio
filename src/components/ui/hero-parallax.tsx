@@ -105,13 +105,13 @@ export const Header = () => {
   return (
     <>
      
-     <div className="grid grid-cols-2 p-4">
+     <div className="lg:grid lg:grid-cols-2 p-4 flex flex-col">
       <div className="w-full   p-2 sm:mt-16  text-white ">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+      <h1 className="text-2xl md:text-7xl font-bold dark:text-white lg:relative lg:top-20 gap-2 ">
         Hello I&apos;m 
       </h1>
       
-      <p className="max-w-2xl text-base sm:text-xl mt-8 dark:text-neutral-200">
+      <p className="max-w-2xl text-base sm:text-xl mt-8 dark:text-neutral-200 lg:relative lg:top-24">
         write a summury 
         <br></br>
         We build beautiful products with the latest technologies and frameworks.
@@ -119,15 +119,21 @@ export const Header = () => {
         amazing products
       </p>
       </div>
-      <div className="rounded-full   ">
+      <div className=" relative top-32 left-8  p-4  md:top-[-50%] lg:top-[-20%] sm:flex sm:flex-col sm:justify-between sm:items-end sm:left-10 md:left-8">
       <Image
-      className=" w-64 md:w-80 p-2 rounded-2xl object-cover z-10 absolute right-10  md:right-64 md:top-32 "
+      height="600"
+      width="600"
+      className=" w-64  md:w-80 p-2 rounded-2xl object-cover z-10 absolute right-10  md:right-64 md:top-32 "
       src="./portfolio-image.jpg" alt="image not fetched" />
       
     </div>
     </div>
+
+
+
+
     
-    <div className="flex " >
+    <div className="flex lg:relative lg:top-20 gap-2 " >
    <ul  className=" items-center justify-center flex p-4 gap-4"> 
         <li className=' hover:scale-100 scale-75 flex  w-[35px]  h-[35px] bg-gradient-to-tr from-red-700 to-orange-500 shadow-lg shadow-orange-500  rounded-full text-white justify-center items-center '>
         <Link href="{/*paste link here */}"

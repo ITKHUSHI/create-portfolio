@@ -12,8 +12,8 @@ const SkillBar: React.FC<SkillBarProps> = ({ skill, proficiency }) => {
   return (
     <>
     
-<div className='container  '>
-  <div className='card shadow-lg shadow-emerald-400'>
+<div className='container   '>
+  <div className='card shadow-lg shadow-slate-800 bg-gradient-to-r from-slate-950'>
     <div className='percent' 
      style={{ strokeDashoffset: `calc(440 - (440 * ${proficiency} / 100))`}}>
       <div className='dot' 

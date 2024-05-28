@@ -4,7 +4,6 @@ import { Vortex } from "./ui/vortex";
 const initValues={name:"", email:"",message:""};
 const initState={values: initValues};
 
-
 export function VortexDemo() {
 	
 const [formData, setFormData] = useState(initValues);
@@ -22,21 +21,17 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   // Handle form submission, e.g., send data to backend
   console.log(formData);
-  // Reset form fields
-  setFormData((prev)=>({
-	...prev,
-  }));
+  
   try {
 	await sendInfo(formData)
 
    } catch (error) {
-	setFormData((prev)=>({
-	  ...prev,
-	  
-	}))
 	console.log("data not fecthed", error);
 	
   }
+  //Reset all values
+    setFormData(initValues);
+  
   
 
 };

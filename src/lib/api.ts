@@ -7,7 +7,7 @@ interface DataProps {
   
 const sendInfo = async (data:DataProps) => {
 	try {
-	  const res = await fetch('/api/contact', {
+	  const res = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT !, {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ const sendInfo = async (data:DataProps) => {
 	  const body = await res.json();
   
 	  if (res.ok) {
-		alert(`${body.message} 🚀`);
+		alert(`Mail send Sussessfully 🚀`);
 	  }
   
 	  if (res.status === 400) {

@@ -1,5 +1,5 @@
 'use client'
-import {VortexDemo} from '@/components/vortexx'
+import {VortexDemo} from '@/components/Contact'
 
 const ContactForm: React.FC = () => {
 

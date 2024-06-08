@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 // import handler from "@/pages/api/contact";
 interface DataProps {
 	name: string;
@@ -19,14 +21,17 @@ const sendInfo = async (data:DataProps) => {
 	  const body = await res.json();
   
 	  if (res.ok) {
-		alert(`Mail send Sussessfully 🚀`);
+		toast.success(`Mail send Sussessfully 🚀`);
 	  }
   
 	  if (res.status === 400) {
-		alert(`${body.message} 😢`);
+		console.log(`${body.message} 😢`);
+		toast.error(`${body.message} 😢`);
+
 	  }
-	} catch (err) {
-	  console.log('Something went wrong: ', err);
+	} catch (error) {
+	  console.log('Something went wrong: ', error);
+	  toast.error( "somthing went wrong");
 	}
 	
   };

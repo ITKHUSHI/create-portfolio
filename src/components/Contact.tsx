@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import sendInfo from '@/lib/api';
 import { Vortex } from "./ui/vortex";
-const initValues={name:"", email:"",message:""};
-const initState={values: initValues};
+const initValues={name:"", email:"",message:"" , contact:""};
 
 export function VortexDemo() {
-	
+
 const [formData, setFormData] = useState(initValues);
 const { name }=formData;
-
+const[loading , setLoading]=useState(false);
 const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
   const { name, value } = e.target;
   setFormData(prevState => ({
@@ -21,18 +20,17 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   // Handle form submission, e.g., send data to backend
   console.log(formData);
-  
+  setLoading(true);
   try {
 	await sendInfo(formData)
 
    } catch (error) {
 	console.log("data not fecthed", error);
-	
+  }finally{
+	setLoading(false);
   }
   //Reset all values
-    setFormData(initValues);
-  
-  
+    setFormData(initValues); 
 
 };
   return (
@@ -58,7 +56,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		   required
 		 />
 	   </div>
-	   {/* <div>
+	   <div>
 		 <label htmlFor="contact" className="block mb-1">contact</label>
 		 <input
 		   id="contact"
@@ -68,7 +66,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		   className="w-full  border-gray-300 rounded-md focus:outline-none focus:border-blue-500 px-4 py-2 text-black"
 		   required
 		 />
-	   </div> */}
+	   </div>
 	   <div>
 		 <label htmlFor="email" className="block mb-1">Email</label>
 		 <input
@@ -93,7 +91,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		 />
 	   </div>
 	   <div>
-		 <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Submit</button>
+		 <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">{loading? "loading":"sent"}</button>
 	   </div>
 	 </form>
    </div>

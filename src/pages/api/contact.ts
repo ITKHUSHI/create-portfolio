@@ -1,13 +1,9 @@
-// import type { NextApiRequest, NextApiResponse } from "next";
 
-// export default function handler(req: NextApiRequest, res: NextApiResponse) {
-//   res.status(200).json({ name: "John Doe" });
-// }
-  
-// pages/api/contact.ts
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import { toast } from 'react-toastify';
+
 
 // Nodemailer docs: // https://nodemailer.com/about/
 export default async function handler(
@@ -24,9 +20,9 @@ export default async function handler(
     secure: false, // Default value but showing for explicitness
   });
 
-  const { name, email, message } = req.body;
+  const { name, email, message,contact } = req.body;
 
-  if (!message || !name || !message) {
+  if (!message || !name || !message || !contact) {
     return res
       .status(400)
       .json({ message: 'Please fill out the necessary fields' });
@@ -38,7 +34,7 @@ export default async function handler(
     to: process.env.EMAIL,
     subject: `Message from ${name}`,
     text: ` Message : ${message} | Sent from: ${email}`,
-    html: `<div>${message}</div><p>Sent from: ${email}</p>`,
+    html: `<div>${message}</div><p>Sent from: ${email}</p><br/><p>Contact Number :- ${contact}`,
   };
 
   await new Promise((resolve, reject) => {

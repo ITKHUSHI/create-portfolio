@@ -63,13 +63,13 @@ export const HoverEffect = ({
           <Card>
              
             <CardTitle>{item.title}</CardTitle>
-            
-            <Image 
+             
+           <Image 
             width='200'
             height='200'
             src={item.image} alt="image not found"
             className="w-full h-64 object-cover  lg:p-4"  />
-            <CardDescription>{item.description}</CardDescription>
+            <CardDescription >{item.description}</CardDescription>
             <Link href={item.link} target="_blank"
             className="bg-blue-600 p-3 rounded-xl hover:bg-blue-700"
             > Project Link</Link>
